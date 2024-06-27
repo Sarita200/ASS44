@@ -92,7 +92,25 @@ function Home() {
                 <option value="Other">Other</option>
             </select>
 
-            
+            <img 
+                src={add} 
+                alt="add-btn" 
+                className="add-icon"
+                onClick={()=>{
+                    if(newTask === ""){
+                        toast.error('Task Can not be Empty')
+                        return
+                    }
+                    if(categeory === ""){
+                        toast.error('Category Can not be Empty')
+                        return
+                    }
+                    setTodoList([...todoList,{task:newTask, categeory: categeory} ])
+                    setNewTask("")
+                    setCategory("")
+                    toast.success("Task Added Successfully")
+                }}
+            />
         </div>
         <Toaster/>
     </div>
